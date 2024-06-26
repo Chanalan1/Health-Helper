@@ -12,6 +12,7 @@ load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+# random comment
 
 # Get the API key from environment variables
 
