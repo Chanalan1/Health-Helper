@@ -1,0 +1,128 @@
+[
+    {
+        "Facility Name":"Asian Counseling and Referral Service",
+        "Phone Number":"206-695-7600",
+        "Address":"3639 Martin Luther King Jr Way S,\u00a0Seattle,\u00a0WA 98144",
+        "Groups Served":"All",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Atlantic Street Center",
+        "Phone Number":"206-329-2050",
+        "Address":"2103 S Atlantic St,\u00a0Seattle,\u00a0WA 98144",
+        "Groups Served":"Youth",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Catholic Community Services",
+        "Phone Number":"206-956-9571",
+        "Address":"1902 2nd Avenue,\u00a0Seattle,\u00a0WA 98101",
+        "Groups Served":"Adults",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Childhaven",
+        "Phone Number":"206-248-4903",
+        "Address":"1035 SW 124th Street,\u00a0Seattle,\u00a0WA 98146",
+        "Groups Served":"Youth",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Community House Mental Health",
+        "Phone Number":"206-322-2387",
+        "Address":"2212 S Jackson St,\u00a0Seattle,\u00a0WA 98144",
+        "Groups Served":"Adults",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Consejo Counseling and Referral Services",
+        "Phone Number":"206-461-4880",
+        "Address":"2611 NE 125th Street,\u00a0Seattle,\u00a0WA 98125",
+        "Groups Served":"Adults",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Downtown Emergency Service Center",
+        "Phone Number":"206-464-6454",
+        "Address":"216 James Street,\u00a0Seattle,\u00a0WA 98104",
+        "Groups Served":"Adults",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Harborview Abuse and Trauma Center",
+        "Phone Number":"206-744-1600",
+        "Address":"401 Broadway,\u00a0Seattle,\u00a0WA 98104",
+        "Groups Served":"All",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Harborview Outpatient Mental Health and Addiction Services",
+        "Phone Number":"206-744-9600",
+        "Address":"325 9th Avenue,\u00a0Seattle,\u00a0WA 98104",
+        "Groups Served":"All",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"IKRON",
+        "Phone Number":"206-420-7949",
+        "Address":"10303 Meridian Ave N,\u00a0Seattle,\u00a0WA 98133",
+        "Groups Served":"All",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"King County Crisis & Commitment Services",
+        "Phone Number":"206-263-9200",
+        "Address":"9725 3rd Avenue NE,\u00a0Seattle,\u00a0WA 98115",
+        "Groups Served":"All",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"NAVOS",
+        "Phone Number":"206-241-0990",
+        "Address":"1210 SW 136th Street,\u00a0Seattle,\u00a0WA 98166",
+        "Groups Served":"Adults",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Ryther",
+        "Phone Number":"206-525-5050",
+        "Address":"2400 NE 95th Street,\u00a0Seattle,\u00a0WA 98115",
+        "Groups Served":"Youth",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Sound",
+        "Phone Number":"206-461-4580",
+        "Address":"204 NE 94th Street,\u00a0Seattle,\u00a0WA 98115",
+        "Groups Served":"Adults",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Southwest Youth and Family Services",
+        "Phone Number":"206-937-7680",
+        "Address":"4555 Delridge Way SW,\u00a0Seattle,\u00a0WA 98106",
+        "Groups Served":"All",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Therapeutic Health Services",
+        "Phone Number":"206-726-4100",
+        "Address":"1116 Summit Avenue,\u00a0Seattle,\u00a0WA 98101",
+        "Groups Served":"Adults",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"Valley Cities Counseling and Consultation",
+        "Phone Number":"253-833-7444",
+        "Address":"929 N 130th St,\u00a0Seattle,\u00a0WA 98133",
+        "Groups Served":"All",
+        "Services":"Mental Health"
+    },
+    {
+        "Facility Name":"YMCA of Greater Seattle",
+        "Phone Number":"206-382-5013",
+        "Address":"909 4th Ave,\u00a0Seattle,\u00a0WA 98104",
+        "Groups Served":"All",
+        "Services":"Mental Health"
+    }
+]
