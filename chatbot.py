@@ -12,10 +12,8 @@ load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# random comment
 
 # Get the API key from environment variables
-
 def get_openai_response(prompt: str) -> str:
     """
     Function to get a response from OpenAI API based on the given prompt.
