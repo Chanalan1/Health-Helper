@@ -12,10 +12,12 @@ app.secret_key = 'VspS7GtxZY2ZaWSeMmRFF7PeuQkExvge'  # Required for session mana
 # Replace with your OpenAI assistant's model ID
 model_id = "asst_N2jeiYSprp2QuKmRxifggRnr"
 
+
 # Home route
 @app.route('/')
 def home():
     return render_template('index.html')
+
 
 # Chatbot route
 @app.route('/chat', methods=['POST'])
@@ -51,8 +53,9 @@ def chat():
         if msg.role == "assistant":
             assistant_response = msg.content[0].text.value
             break
-    
+
     return assistant_response
+
 
 if __name__ == '__main__':
     app.run(debug=True)
