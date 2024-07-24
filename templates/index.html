@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind-Aid</title>
+</head>
+<body>
+    <h1>Mind-Aid</h1>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <form id="chat-form">
+            <input type="text" id="user-input" name="user_input" placeholder="Type your message...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('chat-form');
+            const chatBox = document.getElementById('chat-box');
+
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const userInput = document.getElementById('user-input').value.trim();
+                if (userInput === '') return;
+
+                const formData = new FormData();
+                formData.append('user_input', userInput);
+
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.text();
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.innerHTML = `<strong>You:</strong> ${userInput}<br><strong>Bot:</strong> ${data}`;
+                chatBox.appendChild(messageElement);
+
+                document.getElementById('user-input').value = '';
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+        });
+    </script>
+</body>
+</html>
