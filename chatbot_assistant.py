@@ -68,7 +68,7 @@ def get_openai_response(prompt: str, model_id: str, temperature: float = 0.7, ma
         return f"Error attempting to generate answer: {e}"
 
 def main():
-    model_id = "asst_ffOROFyvYhtIVB1jIylz4991"  # Replace with the existing assistant's model ID
+    model_id = "asst_N2jeiYSprp2QuKmRxifggRnr"  # Replace with the existing assistant's model ID
     thread = create_thread()
     
     print("Welcome to the OpenAI Chatbot. Type 'exit' to quit.")
