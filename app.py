@@ -7,7 +7,7 @@ import time
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Required for session management
+app.secret_key = 'VspS7GtxZY2ZaWSeMmRFF7PeuQkExvge'  # Required for session management
 
 # Replace with your OpenAI assistant's model ID
 model_id = "asst_N2jeiYSprp2QuKmRxifggRnr"
