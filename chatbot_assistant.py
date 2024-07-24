@@ -1,4 +1,4 @@
-from openai import OpenAI
+import OpenAI
 import os
 import time
 from dotenv import load_dotenv
@@ -54,7 +54,7 @@ def get_openai_response(prompt: str, model_id: str, temperature: float = 0.7, ma
         messages=[
             ChatCompletionSystemMessageParam(
                 role="system", 
-                content="You are a knowledgeable, smart assistant who provides concise and accurate answers."
+                content="please refer to your instructions."
             ),
             ChatCompletionUserMessageParam(
                 role="user", 
