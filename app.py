@@ -1,61 +1,70 @@
-from flask import Flask, render_template, request, session
-from dotenv import load_dotenv
-from chatbot_assistant import create_thread, add_message_to_thread, run_assistant_on_thread, retrieve_run_status, list_thread_messages
+from flask import Flask, request, render_template, jsonify
+from openai import OpenAI
+import os
 import time
+from dotenv import load_dotenv
+from openai.types.chat import ChatCompletionUserMessageParam, ChatCompletionSystemMessageParam
 
-# Load environment variables from .env
+# Load environment variables from a .env file
 load_dotenv()
 
-app = Flask(__name__)
-app.secret_key = 'VspS7GtxZY2ZaWSeMmRFF7PeuQkExvge'  # Required for session management
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# Replace with your OpenAI assistant's model ID
+app = Flask(__name__)
+
 model_id = "asst_N2jeiYSprp2QuKmRxifggRnr"
 
+def create_thread():
+    return client.beta.threads.create()
 
-# Home route
+def add_message_to_thread(thread_id, content):
+    return client.beta.threads.messages.create(
+        thread_id=thread_id,
+        role="user",
+        content=content
+    )
+
+def run_assistant_on_thread(thread_id, assistant_id):
+    return client.beta.threads.runs.create(
+        thread_id=thread_id,
+        assistant_id=assistant_id,
+        instructions="Please refer to your instructions."
+    )
+
+def retrieve_run_status(thread_id, run_id):
+    return client.beta.threads.runs.retrieve(
+        thread_id=thread_id,
+        run_id=run_id
+    )
+
+def list_thread_messages(thread_id):
+    return client.beta.threads.messages.list(
+        thread_id=thread_id,
+        order="asc"
+    )
+
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
-
-# Chatbot route
 @app.route('/chat', methods=['POST'])
 def chat():
-    user_input = request.form['user_input']
-
-    # Handle exit command
-    if user_input.lower() == 'exit':
-        return "Thank you for using Mind Aid, please visit again"
-
-    # Initialize or retrieve thread_id from session
-    if 'thread_id' not in session:
-        thread = create_thread()
-        session['thread_id'] = thread.id
-
-    # Add user message to thread
-    add_message_to_thread(session['thread_id'], user_input)
-
-    # Run assistant on the thread
-    run = run_assistant_on_thread(session['thread_id'], model_id)
-
-    # Poll run status until completed
+    user_input = request.json.get('message')
+    thread = create_thread()
+    add_message_to_thread(thread.id, user_input)
+    run = run_assistant_on_thread(thread.id, model_id)
+    
     while run.status != "completed":
         time.sleep(1)
-        run = retrieve_run_status(session['thread_id'], run.id)
-
-    # Retrieve messages in the thread
-    messages = list_thread_messages(session['thread_id'])
-
-    # Find the last assistant message
-    assistant_response = ""
+        run = retrieve_run_status(thread.id, run.id)
+    
+    messages = list_thread_messages(thread.id)
     for msg in messages:
         if msg.role == "assistant":
-            assistant_response = msg.content[0].text.value
-            break
+            response = msg.content[0].text.value
+            return jsonify({'message': response})
+    
+    return jsonify({'message': 'Something went wrong. Please try again.'})
 
-    return assistant_response
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
