@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, jsonify
 from openai import OpenAI
 import os
 import time
+import re
 from dotenv import load_dotenv
 from openai.types.chat import ChatCompletionUserMessageParam, ChatCompletionSystemMessageParam
 
@@ -43,6 +44,13 @@ def list_thread_messages(thread_id):
         order="asc"
     )
 
+def clean_response(response):
+    # Remove citation patterns like   
+    clean_text = re.sub(r'【\d+:\d+†source】', '', response)
+    # Remove double asterisks (**)
+    clean_text = re.sub(r'\*\*(.*?)\*\*', r'\1', clean_text)
+    return clean_text.strip()
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -62,7 +70,8 @@ def chat():
     for msg in messages:
         if msg.role == "assistant":
             response = msg.content[0].text.value
-            return jsonify({'message': response})
+            clean_response_text = clean_response(response)
+            return jsonify({'message': clean_response_text})
     
     return jsonify({'message': 'Something went wrong. Please try again.'})
 

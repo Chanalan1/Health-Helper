@@ -17,23 +17,33 @@
             font-family: "Poppins", sans-serif;
         }
         body {
-            background: #E3F2FD;
+            background: #618dac;
         }
-        .chatbot-toggler {
+        .chatbot-toggler-container {
             position: fixed;
             bottom: 30px;
             right: 35px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .chatbot-toggler {
             outline: none;
             border: none;
             height: 50px;
             width: 50px;
             display: flex;
-            cursor: pointer;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: #724ae8;
+            background: #0b1bad;
             transition: all 0.2s ease;
+        }
+        .click-text {
+            margin-left: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
         }
         body.show-chatbot .chatbot-toggler {
             transform: rotate(90deg);
@@ -75,7 +85,7 @@
             position: relative;
             text-align: center;
             color: #fff;
-            background: #724ae8;
+            background: #554ae8;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .chatbot header span {
@@ -179,7 +189,7 @@
             visibility: visible;
         }
         @media (max-width: 490px) {
-            .chatbot-toggler {
+            .chatbot-toggler-container {
                 right: 20px;
                 bottom: 20px;
             }
@@ -204,10 +214,13 @@
     </style>
 </head>
 <body>
-    <button class="chatbot-toggler">
-        <span class="material-symbols-rounded">mode_comment</span>
-        <span class="material-symbols-outlined">close</span>
-    </button>
+    <div class="chatbot-toggler-container" onclick="toggleChatbot()">
+        <button class="chatbot-toggler">
+            <span class="material-symbols-rounded">mode_comment</span>
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="click-text"> CLICK ON ME TO START CHATTING</div>
+    </div>
     <div class="chatbot">
         <header>
             <h2>Chatbot</h2>
@@ -251,9 +264,9 @@
             .catch(error => console.error('Error:', error));
         }
 
-        document.querySelector('.chatbot-toggler').addEventListener('click', () => {
+        function toggleChatbot() {
             document.body.classList.toggle('show-chatbot');
-        });
+        }
 
         document.querySelector('.close-btn').addEventListener('click', () => {
             document.body.classList.remove('show-chatbot');
