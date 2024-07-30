@@ -17,33 +17,23 @@
             font-family: "Poppins", sans-serif;
         }
         body {
-            background: #618dac;
+            background: #E3F2FD;
         }
-        .chatbot-toggler-container {
+        .chatbot-toggler {
             position: fixed;
             bottom: 30px;
             right: 35px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .chatbot-toggler {
             outline: none;
             border: none;
             height: 50px;
             width: 50px;
             display: flex;
+            cursor: pointer;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: #0b1bad;
+            background: #724ae8;
             transition: all 0.2s ease;
-        }
-        .click-text {
-            margin-left: 10px;
-            color: white;
-            font-weight: bold;
-            font-size: 1rem;
         }
         body.show-chatbot .chatbot-toggler {
             transform: rotate(90deg);
@@ -85,7 +75,7 @@
             position: relative;
             text-align: center;
             color: #fff;
-            background: #554ae8;
+            background: #724ae8;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .chatbot header span {
@@ -189,7 +179,7 @@
             visibility: visible;
         }
         @media (max-width: 490px) {
-            .chatbot-toggler-container {
+            .chatbot-toggler {
                 right: 20px;
                 bottom: 20px;
             }
@@ -211,16 +201,83 @@
                 display: block;
             }
         }
+                body {
+            background: #E3F2FD;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #724ae8;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .info-section, .chatbot-description {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .info-section h2, .chatbot-description h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .info-section p, .chatbot-description p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .indented-list {
+            list-style-type: disc; /* Use a disc bullet */
+            margin-left: 20px; /* Indentation for the entire list */
+            padding-left: 10px; /* Additional space between bullet and text */
+        }
     </style>
 </head>
 <body>
-    <div class="chatbot-toggler-container" onclick="toggleChatbot()">
-        <button class="chatbot-toggler">
-            <span class="material-symbols-rounded">mode_comment</span>
-            <span class="material-symbols-outlined">close</span>
-        </button>
-        <div class="click-text"> CLICK ON ME TO START CHATTING</div>
+    <header>
+        <h1>HealthHelper</h1>
+        <p>Your guide to finding help in the King County Area</p>
+    </header>
+
+    <div class="container">
+        <section class="info-section">
+            <h2>About Mental Health</h2>
+            <p>What is mental health? From the CDC: "Mental health includes our emotional, psychological, and social well-being. It affects how we think, feel, and act. It also helps determine how we handle stress, relate to others, and make choices. Mental health is important at every stage of life, from childhood and adolescence through adulthood."</p>
+            <p>There are many factors that contribute to mental health problems, including:</p>
+            <ul class="indented-list">
+                <li>Biological factors or brain chemistry</li>
+                <li>Life experiences, such as trauma or abuse or other chronic medical conditions</li>
+                <li>Use of alcohol or drugs</li>
+                <li>Family history of mental health problems</li>
+            </ul>
+            <p>It's important to know that mental health problems are <strong>common</strong> and help is available. People with mental health problems <strong>can</strong> get better and recover.</p>
+        
+        </section>
+
+        <section class="chatbot-description">
+            <h2>About Our Chatbot</h2>
+            <p>Our chatbot is here to provide information about mental health services provided in King County. It can offer resources, answer frequently asked questions, and provide a listening ear.</p>
+            <p>Please note that the chatbot is not a substitute for professional mental health care.  If you're experiencing a crisis or need personalized support, please reach out to a qualified professional.</p>
+            <p>To start a conversation with the chatbot, click the chat icon at the bottom right corner of the page.</p>
+        </section>
     </div>
+
+    <button class="chatbot-toggler">
+        <span class="material-symbols-rounded">mode_comment</span>
+        <span class="material-symbols-outlined">close</span>
+    </button>
     <div class="chatbot">
         <header>
             <h2>Chatbot</h2>
@@ -264,9 +321,9 @@
             .catch(error => console.error('Error:', error));
         }
 
-        function toggleChatbot() {
+        document.querySelector('.chatbot-toggler').addEventListener('click', () => {
             document.body.classList.toggle('show-chatbot');
-        }
+        });
 
         document.querySelector('.close-btn').addEventListener('click', () => {
             document.body.classList.remove('show-chatbot');
